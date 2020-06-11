@@ -4,11 +4,87 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>vanilla Weather App</title>
-    <link rel="stylesheet" href="src/styles.css" />
-  </head>
-  <body>
-    <h1>
-      Weather
-    </h1>
-  </body>
-</html>
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous" />
+      <link rel="stylesheet" href="src/styles.css" />
+      <script src="https://kit.fontawesome.com/3edee57a83.js" crossorigin="anonymous"></script>
+      <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+      </head>
+      
+      <body>
+        <div class="weather-app">
+          <div class="container">
+            <div class="row">
+              <div class="col-6">
+                <h1>
+                  Sunday, 19:48
+                </h1>
+                <h2>
+                  Porto
+                </h2>
+                <h3>
+                  <span class="temp" id="temperature"> 20 </span><span class="temp-celcius"><a href=`#` id="celsius-link">ºC
+                    </a></span><span class="temp-fahr"> <a href=`#` id="fahrenheit-link">ºF</a> </span>
+                </h3>
+                <p id="description">
+                  Sunny
+                </p>
+              </div>
+              <br />
+              <div class="col-6">
+                <div class="humidity" id="humidity"> humidity: 10% </div>
+                <div class="wind" id="wind"> wind: 3km/h </div>
+              </div>
+            </div>
+            <hr />
+            <div class="row">
+              <div class="col">
+                Monday
+                <br />
+                <i class="fas fa-sun"></i>
+              </div>
+              <div class="col">
+                Tuesday
+                <br />
+                <i class="fas fa-sun"></i>
+              </div>
+              <div class="col">
+                Wednesday
+                <br />
+                <i class="fas fa-cloud-sun"></i>
+              </div>
+              <div class="col">
+                Thursday
+                <br />
+                <i class="fas fa-cloud-sun-rain"></i>
+              </div>
+              <div class="col">
+                Friday
+                <br />
+                <i class="fas fa-cloud-showers-heavy"></i>
+              </div>
+            </div>
+            <br />
+            <form id="city-form">
+              <div class="row">
+                <div class="col-7">
+                  <input class="form-control" id="city-input" type="text" placeholder="enter a city..." />
+                </div>
+                <div class="col-2">
+                  <button type="button" id="button-search" class="btn btn-outline-info">search</button>
+                </div>
+                <div class="col-2">
+                  <button type="button" id="button-current" class="btn btn-outline-info">current</button>
+                </div>
+              </div>
+            </form>
+          </div>
+          <footer>
+            <a href="https://github.com/patte-zh/vanilla-weather-app" id="openSource">
+            Open-source code
+          </a>
+          <span>by patricia rodrigues</span></footer>
+          <script src="src/script.js"></script>
+      </body>
+      
+      </html>
