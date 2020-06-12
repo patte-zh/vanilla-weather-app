@@ -28,6 +28,8 @@ function showTemp(response) {
   let cityElement = document.querySelector(`#city`);
   cityElement.innerHTML = response.data.name;
 
+  celsiusTemperature = response.data.main.temp;
+
   let temperatureElement = document.querySelector(`#temperature`);
   temperatureElement.innerHTML = Math.round(response.data.main.temp);
 
@@ -61,7 +63,27 @@ function searchButton(event) {
   search(cityInput.value);
 }
 
-search("Porto");
+function fahrenheitTemp(event) {
+  event.preventDefault();
+  let temperatureElement = document.querySelector(`#temperature`);
+  let fahrenheitTemperature = (celsiusTemperature * 9) / 5 + 32;
+  temperatureElement.innerHTML = Math.round(fahrenheitTemperature);
+}
+function celsiusTemp(event) {
+  event.preventDefault();
+  let temperatureElement = document.querySelector(`#temperature`);
+  temperatureElement.innerHTML = Math.round(celsiusTemperature);
+}
+
+let celsiusTemperature = null;
 
 let cityForm = document.querySelector(`#city-form`);
 cityForm.addEventListener(`submit`, searchButton);
+
+let fahrenheitLink = document.querySelector(`#fahrenheit-link`);
+fahrenheitLink.addEventListener("click", fahrenheitTemp);
+
+let celsiusLink = document.querySelector(`#celsius-link`);
+celsiusLink.addEventListener("click", celsiusTemp);
+
+search("Porto");
