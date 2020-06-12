@@ -1,3 +1,75 @@
-h1 {
+h1,
+h2,
+h3,
+p {
   text-align: center;
+  color: rgba(128, 128, 128, 0.625);
+  padding-bottom: 40px;
+}
+h1 {
+  font-weight: lighter;
+  font-size: 12px;
+}
+h2 {
+  font-size: 40px;
+}
+h3 {
+  font-size: 80px;
+}
+
+p {
+  font-size: 18px;
+  font-weight: lighter;
+  margin-bottom: 30px;
+  text-align: center;
+}
+i {
+  margin-top: 5px;
+  margin-bottom: 5px;
+  font-size: 34px;
+}
+
+footer {
+  text-align: center;
+  color: grey;
+  font-size: 10px;
+  padding-top: 0;
+}
+button {
+  box-shadow: 5px 5px 15px #abecd6;
+}
+#button-search {
+  position: relative;
+  left: -18px;
+}
+.wind,
+.humidity {
+  color: gba(128, 128, 128, 0.68);
+  display: block;
+  text-align: center;
+  font-size: 12px;
+  font-weight: lighter;
+  list-style: none;
+}
+.col {
+  color: whitesmoke;
+}
+.temp-celcius,
+.temp-fahr {
+  display: block;
+  text-align: center;
+  font-size: 12px;
+  position: relative;
+  left: 70px;
+  top: -74px;
+}
+
+.weather-app {
+  margin: 20px auto;
+  border: 1px solid grey;
+  border-radius: 5px;
+  padding: 15px;
+  max-width: 450px;
+  background-image: linear-gradient(to top, #fddb92 0%, #d1fdff 100%);
+  box-shadow: 5px 5px 15px rgb(190, 188, 188);
 }
