@@ -22,6 +22,7 @@ p {
   font-weight: lighter;
   margin-bottom: 30px;
   text-align: center;
+  text-transform: capitalize;
 }
 i {
   margin-top: 5px;

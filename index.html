@@ -10,35 +10,29 @@
       integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
       crossorigin="anonymous"
     />
-    <link rel="stylesheet" href="src/styles.css" />
     <script
       src="https://kit.fontawesome.com/3edee57a83.js"
       crossorigin="anonymous"
     ></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <link rel="stylesheet" href="src/styles.css" />
   </head>
 
   <body>
     <div class="weather-app">
       <div class="container">
-        <h1>
-          Sunday, 19:48
-        </h1>
-        <h2>
-          Porto
-        </h2>
+        <h1 id="date"></h1>
+        <h2 id="city"></h2>
         <h3>
-          <span class="temp" id="temperature"> 20 </span
+          <span class="temp" id="temperature"></span
           ><span class="temp-celcius"
             ><a href="`#`" id="celsius-link">ºC</a> |
             <a href="`#`" id="fahrenheit-link">ºF</a>
           </span>
         </h3>
-        <p id="description">
-          Sunny
-        </p>
-        <div class="humidity" id="humidity">humidity: 10%</div>
-        <div class="wind" id="wind">wind: 3km/h</div>
+        <p id="description"></p>
+        <div class="humidity" id="humidity">humidity: %</div>
+        <div class="wind" id="wind">wind: km/h</div>
         <hr />
         <form id="city-form">
           <div class="row">
