@@ -1,5 +1,5 @@
 function formatDate(timestamp) {
-  let date = newDate(timestamp);
+  let date = new Date(timestamp);
   let hours = date.getHours();
   if (hours < 10) {
     hours = `0${hours}`;
@@ -35,13 +35,33 @@ function showTemp(response) {
   descriptionElement.innerHTML = response.data.weather[0].description;
 
   let humidityElement = document.querySelector(`#humidity`);
-  humidityElement.innerHTML = response.data.main.humidity;
+  humidityElement.innerHTML = `humidity: ${response.data.main.humidity} %`;
 
   let windElement = document.querySelector(`#wind`);
-  windElement.innerHTML = Math.round(response.data.wind.speed);
+  windElement.innerHTML = `wind: ${Math.round(response.data.wind.speed)} km/h`;
+
+  let iconElement = document.querySelector(`#icon`);
+  iconElement.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${response.date.weather[0].icon}@2x.png`
+  );
+  iconElement.setAttribute("alt", response.data.weather[0].description);
 }
 
-let apiKey = `9cd8a2246f79707c08b7050e7b412588`;
-let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}`;
+function search(city) {
+  let apiKey = `9cd8a2246f79707c08b7050e7b412588`;
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}`;
 
-axios.get(apiUrl).then(showTemp);
+  axios.get(apiUrl).then(showTemp);
+}
+
+function searchButton(event) {
+  event.preventDefault();
+  let cityInput = document.querySelector(`#city-input`);
+  search(cityInput.value);
+}
+
+search("Porto");
+
+let cityForm = document.querySelector(`#city-form`);
+cityForm.addEventListener(`submit`, searchButton);
