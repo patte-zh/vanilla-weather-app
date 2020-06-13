@@ -24,11 +24,6 @@ p {
   text-align: center;
   text-transform: capitalize;
 }
-i {
-  margin-top: 5px;
-  margin-bottom: 5px;
-  font-size: 34px;
-}
 
 footer {
   text-align: center;
@@ -72,12 +67,19 @@ button {
   box-shadow: 5px 5px 15px rgb(190, 188, 188);
 }
 
-#button-search {
-  position: relative;
-  left: -18px;
-}
-
 #icon {
   position: relative;
   right: -10px;
+}
+
+#forecast {
+  font-size: 12px;
+  text-align: center;
+}
+
+#forecast img {
+  display: block;
+  margin: 0 auto;
+  height: 40px;
+  width: 40px;
 }

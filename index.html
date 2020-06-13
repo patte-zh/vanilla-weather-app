@@ -37,7 +37,7 @@
         <hr />
         <form id="city-form">
           <div class="row">
-            <div class="col-7">
+            <div class="col-9">
               <input
                 class="form-control"
                 id="city-input"
@@ -46,7 +46,7 @@
                 autocomplete="off"
               />
             </div>
-            <div class="col-2">
+            <div class="col-3">
               <button
                 type="button"
                 id="button-search"
@@ -55,40 +55,10 @@
                 search
               </button>
             </div>
-            <div class="col-2">
-              <button
-                type="button"
-                id="button-current"
-                class="btn btn-outline-info"
-              >
-                current
-              </button>
-            </div>
           </div>
         </form>
         <br />
-        <div class="row">
-          <div class="col">
-            Monday
-            <br />
-            <i class="fas fa-sun"></i>
-          </div>
-          <div class="col">
-            Tuesday
-            <br />
-            <i class="fas fa-sun"></i>
-          </div>
-          <div class="col">
-            Wednesday
-            <br />
-            <i class="fas fa-cloud-sun"></i>
-          </div>
-          <div class="col">
-            Thursday
-            <br />
-            <i class="fas fa-cloud-sun-rain"></i>
-          </div>
-        </div>
+        <div class="row" id="forecast"></div>
       </div>
     </div>
     <footer>

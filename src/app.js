@@ -1,13 +1,6 @@
 function formatDate(timestamp) {
   let date = new Date(timestamp);
-  let hours = date.getHours();
-  if (hours < 10) {
-    hours = `0${hours}`;
-  }
-  let minutes = date.getMinutes();
-  if (minutes < 10) {
-    minutes = `0${minutes}`;
-  }
+
   let days = [
     `Sunday`,
     `Monday`,
@@ -18,7 +11,20 @@ function formatDate(timestamp) {
     `Saturday`,
   ];
   let day = days[date.getDay()];
-  return `${day}, ${hours}:${minutes}`;
+  return `${day}, ${formatHours(timestamp)}`;
+}
+
+function formatHours(timestamp) {
+  let date = new Date(timestamp);
+  let hours = date.getHours();
+  if (hours < 10) {
+    hours = `0${hours}`;
+  }
+  let minutes = date.getMinutes();
+  if (minutes < 10) {
+    minutes = `0${minutes}`;
+  }
+  return `${hours}:${minutes}`;
 }
 
 function showTemp(response) {
@@ -50,11 +56,38 @@ function showTemp(response) {
   iconElement.setAttribute("alt", response.data.weather[0].description);
 }
 
+function displayForecast(response) {
+  let forecastElement = document.querySelector(`#forecast`);
+  forecastElement.innerHTML = null;
+  let forecast = null;
+
+  for (let index = 0; index < 5; index++) {
+    forecast = response.data.list[index];
+    forecastElement.innerHTML += `
+    <div class="col">
+            ${formatHours(forecast.dt * 1000)}
+            <br />
+            <img src="http://openweathermap.org/img/wn/${
+              forecast.weather[0].icon
+            }@2x.png"/>
+            <div class="weather-forecast-temperature">
+            <strong>
+            ${Math.round(forecast.main.temp_max)}º
+            </strong>
+            |${Math.round(forecast.main.temp_min)}º
+            </div>
+          </div>`;
+  }
+}
+
 function search(city) {
   let apiKey = `9cd8a2246f79707c08b7050e7b412588`;
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}`;
 
   axios.get(apiUrl).then(showTemp);
+
+  apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(displayForecast);
 }
 
 function searchButton(event) {
